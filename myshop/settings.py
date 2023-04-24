@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -64,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -117,6 +121,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_URL = 'static/'
 
@@ -125,6 +131,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# Stripe settings
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51N0LpdSIiL3LRLUNHFwAZdGsFqijktJTwczXFbO3CsF8QHoPVvAylzhLwSTn0YIq1ZcIJ0XUsa6hTDgSIC9qHG9g00sDDAKDnP'
+STRIPE_SECRET_KEY = 'sk_test_51N0LpdSIiL3LRLUNbQH61pVDRjk9oqC1wiUH5sttKLASaOqCTF1ygCJOSj0actI0YHaK27jihU0jxwdkbRBz7tC400bH0e6ok4' 
+STRIPE_API_VERSION = '2022-08-01'
+
