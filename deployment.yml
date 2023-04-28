@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: myshop-deployment
+
+  labels:
+
+    app: myshop
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: myshop
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: myshop
+
+    spec:
+
+      containers:
+
+      - name: myshop
+
+        image: 292627/django:myshop
+
+        ports:
+
+        - containerPort: 80

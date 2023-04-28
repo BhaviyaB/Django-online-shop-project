@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myshop
+  name: myshop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myshop
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: myshop
+    spec:
+      containers:
+      - image: 292627/django:myshop
+        name: myshop
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 8000
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myshop-service
+spec:
+  selector:
+    app: myshop
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+  type: LoadBalancer
