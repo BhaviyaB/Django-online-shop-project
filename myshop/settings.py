@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-n63!e9m^c-!u0uuuot-+g#)2_dl+xmdm-xra8qntjqs@n=b$oi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -125,6 +125,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'static'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -136,4 +138,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51N0LpdSIiL3LRLUNHFwAZdGsFqijktJTwczXFbO3CsF8QHoPVvAylzhLwSTn0YIq1ZcIJ0XUsa6hTDgSIC9qHG9g00sDDAKDnP'
 STRIPE_SECRET_KEY = 'sk_test_51N0LpdSIiL3LRLUNbQH61pVDRjk9oqC1wiUH5sttKLASaOqCTF1ygCJOSj0actI0YHaK27jihU0jxwdkbRBz7tC400bH0e6ok4' 
 STRIPE_API_VERSION = '2022-08-01'
+STRIPE_WEBHOOK_SECRET = 'whsec_08d34b1ffcd761034965c2b49625255d1f718bd0c45c4c3255b6203b40e7d8f7'
 
