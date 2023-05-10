@@ -5,8 +5,6 @@ from coupons.forms import CouponApplyForm
 from shop.recommender import Recommender
 from .cart import Cart
 from .forms import CartAddProductForm
-from coupons.forms import CouponApplyForm
-
 
 
 @require_POST
@@ -40,7 +38,6 @@ def cart_detail(request):
 
     r = Recommender()
     cart_products = [item['product'] for item in cart]
-
     if(cart_products):
         recommended_products = r.suggest_products_for(cart_products,
                                                       max_results=4)
